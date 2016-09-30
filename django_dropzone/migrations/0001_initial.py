@@ -17,7 +17,8 @@ class Migration(migrations.Migration):
             name='UploadFile',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('image', models.ImageField(height_field='image_height', upload_to='temp_image/%Y/%m/%d', verbose_name='Upload file', width_field='image_width')),
+                ('image', models.ImageField(height_field='image_height', upload_to='temp_image/%Y/%m/%d',
+                                            verbose_name='Upload file', width_field='image_width')),
                 ('image_width', models.IntegerField(default=0)),
                 ('image_height', models.IntegerField(default=0)),
             ],

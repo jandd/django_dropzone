@@ -1,0 +1,20 @@
+{
+  "name": "django_dropzone",
+  "description": "Django application with dropzone.js file uploads\"",
+  "main": "",
+  "authors": [
+    "Jan Dittberner"
+  ],
+  "license": "GPLv3+",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}

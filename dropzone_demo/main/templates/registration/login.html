@@ -2,9 +2,20 @@
 {% load i18n %}
 {% block navigation %}{% endblock %}
 {% block content %}
-    <form method="post" action="{% url "login" %}">
+    <form method="post" action="{% url "login" %}" class="form">
         {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="{% trans "Login" %}">
+        <div class="form-group">
+            <label for="{{ form.username.id_for_label }}">{% trans "Username:" %}</label>
+            <input type="text" id="{{ form.username.auto_id }}" name="{{ form.username.html_name }}"
+                    {% if form.username.data %} value="{{ form.username.data }}" {% endif %} class="form-control"
+                    {% if form.username.field.required %} required{% endif %} autofocus>
+        </div>
+        <div class="form-group">
+            <label for="{{ form.password.id_for_label }}">{% trans "Password:" %}</label>
+            <input type="password" id="{{ form.password.auto_id }}" name="{{ form.password.html_name }}"
+                    {% if form.password.data %} value="{{ form.password.data }}" {% endif %} class="form-control"
+                    {% if form.password.field.required %} required{% endif %}>
+        </div>
+        <input type="submit" class="btn btn-default btn-lg" value="{% trans "Login" %}">
     </form>
 {% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load i18n staticfiles %}
+{% block extracss %}
+    <link rel="stylesheet" href="{% static "dropzone.css" %}">
+{% endblock %}
+{% block content %}
+    <form class="form dropzone" action="{% url "image_upload" %}" enctype="multipart/form-data" id="upload_image">
+        {% csrf_token %}
+        <div class="fallback">{{ form.image }}</div>
+        {{ form.image.errors }}
+    </form>
+{% endblock %}
+{% block extrajs %}
+    <script src="{% static "dropzone.js" %}"></script>
+    <script type="application/javascript">
+        Dropzone.options.uploadImage = {
+            paramName: 'image',
+            uploadMultiple: false
+        };
+    </script>
+{% endblock %}

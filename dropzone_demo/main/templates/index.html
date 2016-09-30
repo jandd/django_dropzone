@@ -2,4 +2,5 @@
 {% load i18n %}
 {% block content %}
     {% trans "Hi!" %}
+    <a href="{% url "image_upload" %}" class="btn btn-primary">{% trans "Image upload" %}</a>
 {% endblock %}

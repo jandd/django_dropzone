@@ -1,6 +1,7 @@
 .idea/
 /node_modules/
 /static/
+/media/
 /bower_components/
 db.sqlite3
 

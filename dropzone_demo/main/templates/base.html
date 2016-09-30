@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load i18n %}
+<head>
+    <title>{% block title %}Hello World{% endblock %}</title>
+</head>
+<body>
+<header>
+    {% block header %}<h1>Hello World</h1>{% endblock %}
+</header>
+<nav>
+    {% block navigation %}
+        {% spaceless %}
+            <ul>
+                {% if request.user.is_anonymous %}
+                    <li><a href="{% url 'login' %}">{% trans "Login" %}</a></li>
+                {% else %}
+                    <li><a href="{% url 'logout' %}">{% trans "Logout" %}</a></li>
+                    {% if request.user.is_staff %}
+                        <li><a href="{% url 'admin:index' %}">{% trans "Admin site" %}</a></li>
+                    {% endif %}
+                {% endif %}
+            </ul>
+        {% endspaceless %}
+    {% endblock %}
+</nav>
+<div id="content">
+    {% block content %}{% endblock %}
+</div>
+</body>
